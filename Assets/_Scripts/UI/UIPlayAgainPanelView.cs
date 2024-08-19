@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 namespace _Scripts.UI
 {
-    //kendi şini yapıyor.
     public class UIPlayAgainPanelView : MonoBehaviour
     {
         [SerializeField] private GameObject PlayAgainPanel;

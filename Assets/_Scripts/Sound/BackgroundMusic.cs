@@ -19,4 +19,6 @@ public class BackgroundMusic : Singleton<BackgroundMusic>
     public void ClickSoundOFF()
     {
         backgroundMusicAudioSource.mute = true;
-    }}
+    }
+    
+}

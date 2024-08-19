@@ -20,8 +20,4 @@ public class Tile : MonoBehaviour
         OnClicked?.Invoke(this.gameObject,symbol);
          _isTouched = true;
     }
-    //ınstantiate
-    
-    
- 
 }

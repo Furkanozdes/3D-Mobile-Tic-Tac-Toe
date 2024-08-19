@@ -35,7 +35,6 @@ public class Board : MonoBehaviour
 
     public void SetSymbol(GameObject tile, Symbols symbol)
     {
-        //getcomponent araştır
         int index = tiles.IndexOf(tile);
         board[index / 3, index % 3] = symbol;
         tile.GetComponent<Tile>().symbol = symbol;

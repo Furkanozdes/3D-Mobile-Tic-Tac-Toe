@@ -39,20 +39,15 @@ public class GameManager : MonoBehaviour
             case Symbols.X:
                 PlayerInfoManagerSO.instance.playerinfo.player1.symbol = Symbols.X;
                 PlayerInfoManagerSO.instance.playerinfo.player2.symbol = Symbols.O;
-                PlayerInfoManagerSO.instance.playerinfo.isFirstGame = false;
-                GameStateManager.OnGameStateChanged?.Invoke(GameStates.RayCastActive);
                 break;
 
             case Symbols.O:
                 PlayerInfoManagerSO.instance.playerinfo.player1.symbol = Symbols.O;
                 PlayerInfoManagerSO.instance.playerinfo.player2.symbol = Symbols.X;
-                PlayerInfoManagerSO.instance.playerinfo.isFirstGame = false;
-                GameStateManager.OnGameStateChanged?.Invoke(GameStates.RayCastActive);
                 break;
         }
-      
-
-        
+        PlayerInfoManagerSO.instance.playerinfo.isFirstGame = false;
+        GameStateManager.OnGameStateChanged?.Invoke(GameStates.RayCastActive);
     }
 
     private void IncreasePlayerScore(GameStates states)
@@ -67,7 +62,6 @@ public class GameManager : MonoBehaviour
             {
                 PlayerInfoManagerSO.instance.playerinfo.player2.score++;
             }
-
             UIPlayerInfoView.DisplayWinnerPlayer();
             UIPlayerInfoView.DeActiveDisplayPlayersTurn();
         }

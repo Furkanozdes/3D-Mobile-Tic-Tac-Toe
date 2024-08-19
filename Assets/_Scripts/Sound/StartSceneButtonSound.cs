@@ -22,7 +22,6 @@ namespace _Scripts.Sound
         
         private void Start()
         {
-            Debug.Log("starttrigger");
             _audioSource.clip = clickSound;
             foreach (Button button in buttons)
             {
@@ -54,8 +53,6 @@ namespace _Scripts.Sound
         {
             sfxSoundAudioSource.mute = true;
         }
-
-
         private void PlaySound()
         {
             _audioSource.PlayOneShot(clickSound);

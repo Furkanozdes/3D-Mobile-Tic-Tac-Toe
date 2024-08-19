@@ -9,15 +9,20 @@ namespace _Scripts.Managers.StartSceneUIManagers
 {
     public class MainMenuUIManager : MonoBehaviour
     {
-        [Header("MainMenu Button")] 
-        [SerializeField] private Button LeaderBoardButton;
+        [Header("MainMenu Button")] [SerializeField]
+        private Button LeaderBoardButton;
+
         [SerializeField] private Button StartButton;
         [SerializeField] private Button SettingsButton;
         [SerializeField] private Button ExitButton;
-        [Space]
-        [Header("Panels")] [SerializeField] private GameObject MainPanel;
+        [SerializeField] private Button CreditsButton;
+
+        [Space] [Header("Panels")] [SerializeField]
+        private GameObject MainPanel;
+
         [SerializeField] private GameObject SettingPanel;
         [SerializeField] private GameObject LeaderBoardPanel;
+        [SerializeField] private GameObject CreditsPanel;
 
         private void Start()
         {
@@ -25,6 +30,7 @@ namespace _Scripts.Managers.StartSceneUIManagers
             SettingsButton.onClick.AddListener(LoadSettingPanel);
             LeaderBoardButton.onClick.AddListener(LoadLeaderBoardPanel);
             ExitButton.onClick.AddListener(ExitGame);
+            CreditsButton.onClick.AddListener(LoadCreditsPanel);
         }
 
         private void LoadGameScene()
@@ -57,6 +63,12 @@ namespace _Scripts.Managers.StartSceneUIManagers
         private void ExitGame()
         {
             Application.Quit();
+        }
+
+        private void LoadCreditsPanel()
+        {
+            CreditsPanel.SetActive(true);
+            MainPanel.SetActive(false);
         }
     }
 }

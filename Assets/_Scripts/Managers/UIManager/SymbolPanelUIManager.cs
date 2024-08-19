@@ -6,6 +6,7 @@ using UnityEngine;
 public class SymbolPanelUIManager : MonoBehaviour
 {
     [SerializeField] private UISymbolPanelView UISymbolPanelView;
+
     private void OnEnable()
     {
         GameStateManager.OnGameStateChanged += CheckSymbolPanel;
@@ -23,7 +24,6 @@ public class SymbolPanelUIManager : MonoBehaviour
             if (PlayerInfoManagerSO.instance.playerinfo.isFirstGame == true)
             {
                 GameStateManager.OnGameStateChanged?.Invoke(GameStates.RayCastDeactive);
-
                 UISymbolPanelView.OpenPanel();
             }
             else if (PlayerInfoManagerSO.instance.playerinfo.isFirstGame == false)
@@ -35,8 +35,6 @@ public class SymbolPanelUIManager : MonoBehaviour
         else
         {
             UISymbolPanelView.ClosePanel();
-
         }
     }
-    
 }

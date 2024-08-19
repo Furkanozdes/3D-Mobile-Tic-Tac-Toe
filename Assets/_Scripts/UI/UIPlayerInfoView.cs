@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace _Scripts.Managers.GameSceneManagerUI
 {
-    //şu an aktif değil
+    
     public class UIPlayerInfoView : MonoBehaviour
     {
        

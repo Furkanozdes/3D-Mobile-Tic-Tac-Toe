@@ -17,8 +17,5 @@ namespace _Scripts.Scriptable
 
         public Symbols winnerSymbol;
         public bool Player1turn;
-        
-        
-        
     }
 }
