@@ -42,7 +42,6 @@ namespace _Scripts.Managers.StartSceneUIManagers
         private void ScenePrepration()
         {
             PlayerInfoManagerSO.instance.playerinfo.isFirstGame = true;
-            GameStateManager.GameStateManager.OnGameStateChanged?.Invoke(GameStates.DecisionSymbol);
             PlayerInfoManagerSO.instance.playerinfo.Player1turn = true;
             PlayerInfoManagerSO.instance.playerinfo.player1.score = 0;
             PlayerInfoManagerSO.instance.playerinfo.player2.score = 0;

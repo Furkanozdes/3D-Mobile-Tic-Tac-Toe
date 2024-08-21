@@ -16,6 +16,11 @@ namespace _Scripts.Managers.GameSceneManagerUI
         [SerializeField] private TextMeshProUGUI ordertext;
         [SerializeField] private GameObject playerTurntext;
 
+        private void Start()
+        {
+            UpdateScoreTexts();
+        }
+
         public void UpdateScoreTexts()
         {
             player1_text.text = "Player1 Score: " + PlayerInfoManagerSO.instance.playerinfo.player1.score;

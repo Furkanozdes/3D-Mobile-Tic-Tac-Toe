@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts.Managers.GameStateManager;
 using _Scripts.System;
 using UnityEngine;
 using UnityEngine.Serialization;

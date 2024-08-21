@@ -25,13 +25,13 @@ public class UIPausePanelView : MonoBehaviour
   public void  PauseGameButton()
   {
       pausePanel.SetActive(true);
-      GameStateManager.OnGameStateChanged?.Invoke(GameStates.RayCastDeactive);
+      GameStateManager.instance.UpdateGameState(GameStates.RayCastDeactive);
   }
 
   public void ResumeGameButton()
   {
     pausePanel.SetActive(false);
-    GameStateManager.OnGameStateChanged?.Invoke(GameStates.RayCastActive);
+    GameStateManager.instance.UpdateGameState(GameStates.RayCastActive);
   }
 
   public void ExitGame()

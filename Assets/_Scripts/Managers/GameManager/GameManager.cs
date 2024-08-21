@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         PlayerInfoManagerSO.instance.playerinfo.isFirstGame = false;
-        GameStateManager.OnGameStateChanged?.Invoke(GameStates.RayCastActive);
+        GameStateManager.instance.UpdateGameState(GameStates.RayCastActive);
     }
 
     private void IncreasePlayerScore(GameStates states)

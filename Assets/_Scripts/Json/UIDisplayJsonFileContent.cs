@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using TMPro;
 using UnityEngine;
@@ -13,6 +14,16 @@ namespace _Scripts.Json
         private void Start()
         {
             DisplayJsonValues();
+        }
+
+        private void OnEnable()
+        {
+            ResetScoreInJsonFile.OnScoresReseted += DisplayJsonValues;
+        }
+
+        private void OnDisable()
+        {
+            ResetScoreInJsonFile.OnScoresReseted -= DisplayJsonValues;
         }
 
         public void DisplayJsonValues()

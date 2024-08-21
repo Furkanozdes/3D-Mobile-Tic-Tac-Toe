@@ -1,24 +1,35 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace _Scripts.Managers.GameStateManager
 {
-    public class GameStateManager : Singleton<GameStateManager>
+    public class GameStateManager : MonoBehaviour
     {
-        public static Action<GameStates> OnGameStateChanged;
-        
+        public static event Action<GameStates> OnGameStateChanged;
+        public static GameStateManager instance;
+
+        private void Awake()
+        {
+            instance = this;
+        }
+
         private void Start()
         {
-            base.Awake();
-            OnGameStateChanged?.Invoke(GameStates.DecisionSymbol);
+            UpdateGameState(GameStates.DecisionSymbol);
+        }
+
+        public void UpdateGameState(GameStates currentState)
+        {
+            OnGameStateChanged?.Invoke(currentState);
         }
     }
 
     public enum GameStates
     {
-        RayCastActive, // kullanıcının kutucukalra symbol koyabildiği durum
-        RayCastDeactive, // kullanıcının kutucuklara symbol koyamadığı durum
-        DecisionSymbol, //oyun başında sembol karar verme.
-        RoundFinish // winnersymbolün belirlendiği ve ona göre animasyon, ses gibi uıların active edildiği durum
+        RayCastActive,      // Kullanıcının kutucuklara sembol koyabildiği durum
+        RayCastDeactive,    // Kullanıcının kutucuklara sembol koyamadığı durum
+        DecisionSymbol,     // Oyun başında sembol kararı verme
+        RoundFinish         // Kazanan sembolün belirlendiği ve buna göre animasyon, ses gibi UI'ların aktif edildiği durum
     }
 }

@@ -57,7 +57,7 @@ public class Board : MonoBehaviour
                 List<GameObject> winningTiles = new List<GameObject> { tiles[a], tiles[b], tiles[c] };
                 OnGameWonAnimation?.Invoke(winningTiles);
                 PlayerInfoManagerSO.instance.playerinfo.winnerSymbol = tiles[a].GetComponent<Tile>().symbol;
-                GameStateManager.OnGameStateChanged?.Invoke(GameStates.RoundFinish);
+                GameStateManager.instance.UpdateGameState(GameStates.RoundFinish);
                 return;
             }
         }
@@ -74,7 +74,7 @@ public class Board : MonoBehaviour
         if (isDraw) // beraberlik durumu
         {
             PlayerInfoManagerSO.instance.playerinfo.winnerSymbol = Symbols.None;
-            GameStateManager.OnGameStateChanged?.Invoke(GameStates.RoundFinish);
+            GameStateManager.instance.UpdateGameState(GameStates.RoundFinish);
         }
     }
 }

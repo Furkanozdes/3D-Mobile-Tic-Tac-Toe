@@ -8,6 +8,8 @@ namespace _Scripts.Json
     public class ResetScoreInJsonFile: MonoBehaviour
     {
         [Header("Buttons")] [SerializeField] private Button ResetButton;
+
+        public static event Action OnScoresReseted;
         private void Start()
         {
             ResetButton.onClick.AddListener(ResetVariable);
@@ -28,6 +30,7 @@ namespace _Scripts.Json
                 
                 string updatedJsonString = JsonUtility.ToJson(data);
                 File.WriteAllText(filePath, updatedJsonString);
+                OnScoresReseted?.Invoke();
             }
         }
     }

@@ -22,14 +22,13 @@ public class SymbolPanelUIManager : MonoBehaviour
         if (states == GameStates.DecisionSymbol)
         {
             if (PlayerInfoManagerSO.instance.playerinfo.isFirstGame == true)
-            {
-                GameStateManager.OnGameStateChanged?.Invoke(GameStates.RayCastDeactive);
+            { 
                 UISymbolPanelView.OpenPanel();
             }
             else if (PlayerInfoManagerSO.instance.playerinfo.isFirstGame == false)
             {
                 UISymbolPanelView.ClosePanel();
-                GameStateManager.OnGameStateChanged?.Invoke(GameStates.RayCastActive);
+                GameStateManager.instance.UpdateGameState(GameStates.RayCastActive);
             }
         }
         else
